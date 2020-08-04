@@ -3,7 +3,7 @@
 document.addEventListener("DOMContentLoaded", ()=>{
     Highcharts.chart('conatiner',{
         chart:{
-            type:"line",
+            type:"areaspline",
             zoomType:"xy"
         },
         
@@ -11,28 +11,21 @@ document.addEventListener("DOMContentLoaded", ()=>{
             text:'FRUITS CHART'
         },
         yAxis:{
+            // alternateGridColor:'#b7cff7',
             title:{
                 text:'Fruits Eaten'
             }
         },
         xAxis :{
+            alternateGridColor:'#b7cff7',
             categories:['Apples', "Banans", 'Mangoes']
         },
         series:[
-        {
-            name:'Fruits Eaten',
-            // data:[["Jane", 10], ["Jack",10], ["John",7]]
-            data:[{
-                name:"Jack",
-                y:10,
-                color:'red',
-                x:2
-            },{
-                name:"Jim",
-                y:20,
-                x:4
-            }]
-        }
+            {
+                name:'Fruits Eaten',
+                negativeColor:'red',
+                data:[1,2,3,4,10,-20,2,50,100,200,2,40,30,100,1]
+            }
         ]
     })
 })
