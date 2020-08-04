@@ -20,18 +20,30 @@ document.addEventListener("DOMContentLoaded", ()=>{
             }
         },
         tooltip:{
-            // animation:false
+            // formatter(){
+            //     return `<strong>X value</strong> - ${this.x} <em>Y value<em> - ${this.y}`
+            // },
+            formatter(){
+                let t =  `<strong>X value:</strong> - ${this.x}`;
+                this.points.forEach(function(point){
+                    t += `<br>Y value:${point.y}`
+                })
+                return t;
+            },
+            animation:false,
             backgroundColor:"#333333",
             borderColor:'red',
             borderRadius:20,
             followPointer:true,
             style:{
                 color:"#ffffff"
-            }
+            },
+            shared:true
         },
         title:{
             text:'FRUITS CHART'
         },
+        colors:['#1c110a', '#e4d6a7', '#e9b44c', '#9b2915', '#50a2a7'],
         yAxis:{
             title:{
                 text:'Fruits Eaten'
